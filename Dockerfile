@@ -1,7 +1,7 @@
 # See https://github.com/phusion/baseimage-docker
 FROM phusion/baseimage:0.9.22
 
-MAINTAINER Doug Goldstein <cardoe@cardoe.com>
+MAINTAINER Derek Straka <derek@asterius.io>
 
 # No Debian that's a bad Debian! We don't have an interactive prompt don't fail
 ENV DEBIAN_FRONTEND noninteractive
@@ -37,7 +37,7 @@ ADD bitbake.sh /usr/local/bin/toaster-eventreplay
 
 
 # ensure our rebuilds remain stable
-ENV APT_GET_UPDATE 2017-09-11
+ENV APT_GET_UPDATE 2018-07-24
 
 # Yocto's depends
 # plus some debugging utils
