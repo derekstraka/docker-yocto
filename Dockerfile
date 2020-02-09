@@ -1,5 +1,5 @@
 # See https://github.com/phusion/baseimage-docker
-FROM phusion/baseimage:0.9.22
+FROM phusion/baseimage:0.11
 
 MAINTAINER Derek Straka <derek@asterius.io>
 
@@ -42,10 +42,10 @@ ENV APT_GET_UPDATE 2018-07-24
 # Yocto's depends
 # plus some debugging utils
 RUN apt-get --quiet --yes update && \
-	apt-get --quiet --yes install gawk wget git-core diffstat unzip \
-		texinfo gcc-multilib build-essential chrpath socat cpio python \
+    apt-get --quiet --yes install gawk wget git-core diffstat unzip \
+        texinfo gcc-multilib build-essential chrpath socat cpio python python3\
         python3-pip python3-pexpect xz-utils debianutils iputils-ping \
-        libsdl1.2-dev xterm sudo curl libssl-dev tmux strace ltrace && \
+        libsdl1.2-dev xterm sudo curl libssl-dev tmux strace ltrace file && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
