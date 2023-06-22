@@ -12,7 +12,7 @@ NAME=$(basename $(dirname $(readlink -f $0)))
 NAME=${NAME#docker-}
 NAME=${2:-${NAME}}
 TAG=${1:-latest}
-REGISTRY=cardoe
+REGISTRY=derekstraka
 COMPLETE=${REGISTRY}/${NAME}:${TAG}
 
 docker build --rm=true -t ${COMPLETE} .
