@@ -21,3 +21,8 @@ jobs:
         with:
           dockerfile: "Dockerfile"
           config: ".hadolint.yaml"
+
+      - name: Lint YAML files
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          config_data: "{extends: default, rules: {document-start: disable, line-length: disable}}"
