@@ -43,7 +43,7 @@ ENV APT_GET_UPDATE 2023-06-30
 # hadolint ignore=DL3008
 RUN apt-get --quiet --yes update && \
     apt-get --quiet --no-install-recommends --yes install gawk wget git-core diffstat unzip \
-        texinfo gcc-multilib build-essential chrpath socat cpio python3\
+        texinfo build-essential chrpath socat cpio python3\
         python3-pip python3-pexpect xz-utils debianutils iputils-ping \
         libsdl1.2-dev xterm sudo curl libssl-dev tmux strace ltrace file && \
         apt-get clean && \
