@@ -1,0 +1,23 @@
+---
+name: Linting
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    tags:
+      - "**"
+    branches:
+      - "**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Lint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: "Dockerfile"
+          config: ".hadolint.yaml"
