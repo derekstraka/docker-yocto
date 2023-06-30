@@ -1,4 +1,6 @@
-#!/bin/sh -eux
+#!/usr/bin/env bash
+
+set -eo pipefail
 
 # Called as follows:
 # ./build.sh TAG NAME
@@ -8,13 +10,13 @@
 # all 3 are equal if run from a directory called 'docker-yocto'
 
 # Try to figure out the project name
-NAME=$(basename $(dirname $(readlink -f $0)))
+NAME=$(basename $(dirname $(readlink -f "$0")))
 NAME=${NAME#docker-}
 NAME=${2:-${NAME}}
 TAG=${1:-latest}
 REGISTRY=derekstraka
-COMPLETE=${REGISTRY}/${NAME}:${TAG}
+COMPLETE="${REGISTRY}/${NAME}:${TAG}"
 
-docker build --rm=true -t ${COMPLETE} .
+docker build --rm=true -t "${COMPLETE}" .
 
-docker push ${COMPLETE}
+docker push "${COMPLETE}"

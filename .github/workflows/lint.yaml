@@ -32,3 +32,8 @@ jobs:
         with:
           args: './README.md'
           config: '.markdownlint.yaml'
+
+      - name: Lint shell scripts
+        uses: azohra/shell-linter@v0.6.0
+        with:
+          path: "*.sh"

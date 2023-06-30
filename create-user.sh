@@ -14,11 +14,11 @@ BUILD_UID=${BUILD_UID/#0/580}
 BUILD_GID=${BUILD_GID/#0/580}
 
 # create a group
-groupadd --gid ${BUILD_GID} --non-unique buildgroup
+groupadd --gid "${BUILD_GID}" --non-unique buildgroup
 
 # create a non-root user
-useradd --no-create-home --home-dir ${homedir} -s /bin/bash \
-	--non-unique --uid ${BUILD_UID} --gid ${BUILD_GID} --groups sudo \
+useradd --no-create-home --home-dir "${homedir}" -s /bin/bash \
+	--non-unique --uid "${BUILD_UID}" --gid "${BUILD_GID}" --groups sudo \
 	builduser
 
 # give users in the sudo group sudo access in the container
