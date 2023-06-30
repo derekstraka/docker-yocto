@@ -3,10 +3,12 @@ name: Linting
 
 on:  # yamllint disable-line rule:truthy
   push:
+    branches:
+      - "main"
     tags:
       - "**"
-    branches:
-      - "**"
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
 
 jobs:
   lint:
