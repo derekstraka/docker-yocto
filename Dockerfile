@@ -1,7 +1,7 @@
 # See https://github.com/phusion/baseimage-docker
-FROM phusion/baseimage:0.11
+FROM phusion/baseimage:jammy-1.0.1
 
-MAINTAINER Derek Straka <derek@asterius.io>
+LABEL org.opencontainers.image.authors="derek@asterius.io"
 
 # No Debian that's a bad Debian! We don't have an interactive prompt don't fail
 ENV DEBIAN_FRONTEND noninteractive
@@ -43,7 +43,7 @@ ENV APT_GET_UPDATE 2018-07-24
 # plus some debugging utils
 RUN apt-get --quiet --yes update && \
     apt-get --quiet --yes install gawk wget git-core diffstat unzip \
-        texinfo gcc-multilib build-essential chrpath socat cpio python python3\
+        texinfo gcc-multilib build-essential chrpath socat cpio python3\
         python3-pip python3-pexpect xz-utils debianutils iputils-ping \
         libsdl1.2-dev xterm sudo curl libssl-dev tmux strace ltrace file && \
         apt-get clean && \
