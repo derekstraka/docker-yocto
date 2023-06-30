@@ -26,3 +26,9 @@ jobs:
         uses: ibiqlik/action-yamllint@v3
         with:
           config_data: "{extends: default, rules: {document-start: disable, line-length: disable}}"
+
+      - name: Lint README file
+        uses: avto-dev/markdown-lint@v1
+        with:
+          args: './README.md'
+          config: '.markdownlint.yaml'
