@@ -1,0 +1,41 @@
+---
+name: Linting
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - "main"
+    tags:
+      - "**"
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Lint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: "Dockerfile"
+          config: ".hadolint.yaml"
+
+      - name: Lint YAML files
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          config_data: "{extends: default, rules: {document-start: disable, line-length: disable}}"
+
+      - name: Lint README file
+        uses: avto-dev/markdown-lint@v1
+        with:
+          args: './README.md'
+          config: '.markdownlint.yaml'
+
+      - name: Lint shell scripts
+        uses: azohra/shell-linter@v0.6.0
+        with:
+          path: "*.sh"
