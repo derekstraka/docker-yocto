@@ -1,5 +1,5 @@
 # See https://github.com/phusion/baseimage-docker
-FROM phusion/baseimage:jammy-1.0.1
+FROM phusion/baseimage:jammy-1.0.4
 
 LABEL org.opencontainers.image.authors="derek@asterius.io"
 
@@ -36,7 +36,7 @@ COPY bitbake.sh /usr/local/bin/toaster-eventreplay
 
 
 # ensure our rebuilds remain stable
-ENV APT_GET_UPDATE 2023-06-30
+ENV APT_GET_UPDATE 2024-09-03
 
 # Yocto's depends
 # plus some debugging utils
