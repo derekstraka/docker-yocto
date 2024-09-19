@@ -4,7 +4,7 @@ FROM phusion/baseimage:jammy-1.0.4
 LABEL org.opencontainers.image.authors="derek@asterius.io"
 
 # No Debian that's a bad Debian! We don't have an interactive prompt don't fail
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Use baseimage-docker's init
 # https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/
@@ -36,7 +36,7 @@ COPY bitbake.sh /usr/local/bin/toaster-eventreplay
 
 
 # ensure our rebuilds remain stable
-ENV APT_GET_UPDATE 2024-09-03
+ENV APT_GET_UPDATE=2024-09-03
 
 # Yocto's depends
 # plus some debugging utils
