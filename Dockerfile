@@ -36,7 +36,7 @@ COPY bitbake.sh /usr/local/bin/toaster-eventreplay
 
 
 # ensure our rebuilds remain stable
-ENV APT_GET_UPDATE=2024-09-03
+ENV APT_GET_UPDATE=2024-12-02
 
 # Yocto's depends
 # plus some debugging utils
