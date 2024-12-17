@@ -30,13 +30,14 @@ COPY bitbake.sh /usr/local/bin/bitbake-prserv
 COPY bitbake.sh /usr/local/bin/bitbake-selftest
 COPY bitbake.sh /usr/local/bin/bitbake-worker
 COPY bitbake.sh /usr/local/bin/bitdoc
+COPY bitbake.sh /usr/local/bin/devtool
 COPY bitbake.sh /usr/local/bin/image-writer
 COPY bitbake.sh /usr/local/bin/toaster
 COPY bitbake.sh /usr/local/bin/toaster-eventreplay
 
 
 # ensure our rebuilds remain stable
-ENV APT_GET_UPDATE=2024-12-02
+ENV APT_GET_UPDATE=2024-12-17
 
 # Yocto's depends
 # plus some debugging utils
@@ -45,7 +46,8 @@ RUN apt-get --quiet --yes update && \
     apt-get --quiet --no-install-recommends --yes install gawk wget git-core diffstat unzip \
         texinfo build-essential chrpath socat cpio python3 zstd lz4 \
         python3-pip python3-pexpect xz-utils debianutils iputils-ping \
-        libsdl1.2-dev xterm sudo curl libssl-dev tmux strace ltrace file && \
+        libsdl1.2-dev xterm sudo curl libssl-dev tmux strace ltrace file \
+        iproute2 iptables && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
